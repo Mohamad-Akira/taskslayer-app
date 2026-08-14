@@ -29,6 +29,11 @@ jobs:
           npx cap add ios || true
           npx cap sync ios
 
+      - name: Install CocoaPods Dependencies
+        run: |
+          cd ios/App
+          pod install
+
       - name: Build iOS Archive (Unsigned)
         run: |
           cd ios/App
@@ -42,14 +47,19 @@ jobs:
                      CODE_SIGNING_REQUIRED=NO \
                      CODE_SIGN_IDENTITY=""
 
-      - name: Compress Archive into Artifact
+      - name: Create Unsigned IPA Package
         run: |
           cd ios/App/build
+          mkdir -p Payload
+          cp -r App.xcarchive/Products/Applications/App.app Payload/
+          zip -r TaskSlayer.ipa Payload
           zip -r App.xcarchive.zip App.xcarchive
 
-      - name: Upload iOS Build Artifact
+      - name: Upload iOS App (IPA & Archive)
         uses: actions/upload-artifact@v4
         with:
-          name: iOS-App-xcarchive
-          path: ios/App/build/App.xcarchive.zip
+          name: TaskSlayer-iOS-Package
+          path: |
+            ios/App/build/TaskSlayer.ipa
+            ios/App/build/App.xcarchive.zip
           retention-days: 7
