@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#311042" />
+    </linearGradient>
+
+    <!-- Shield Fill -->
+    <linearGradient id="shieldFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#312e81" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Shield Border -->
+    <linearGradient id="shieldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+
+    <!-- Slash Cyan Energy -->
+    <linearGradient id="slashEnergy" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0" />
+      <stop offset="20%" stop-color="#38bdf8" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="80%" stop-color="#38bdf8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="slashGlow" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0" />
+      <stop offset="30%" stop-color="#22d3ee" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#67e8f9" stop-opacity="0.9" />
+      <stop offset="70%" stop-color="#22d3ee" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
+    </linearGradient>
+
+    <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+
+  <!-- Shield Base -->
+  <path d="M256 80 C 330 80, 400 98, 400 98 L 400 240 C 400 345, 256 425, 256 425 C 256 425, 112 345, 112 240 L 112 98 C 112 98, 182 80, 256 80 Z" fill="url(#shieldFill)" stroke="url(#shieldBorder)" stroke-width="12" />
+
+  <!-- Shield Inner Border -->
+  <path d="M256 100 C 315 100, 380 114, 380 114 L 380 235 C 380 325, 256 398, 256 398 C 256 398, 132 325, 132 235 L 132 114 C 132 114, 197 100, 256 100 Z" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="4" />
+
+  <!-- Checkmark Emblem inside Shield -->
+  <path d="M205 240 L 242 277 L 312 185" fill="none" stroke="#818cf8" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Dark Cut Line through Shield -->
+  <path d="M 80 400 L 432 112" stroke="#090d16" stroke-width="16" stroke-linecap="round" />
+
+  <!-- Glowing Slash Outer Beam -->
+  <path d="M 60 415 L 452 97" stroke="url(#slashGlow)" stroke-width="24" stroke-linecap="round" filter="url(#glowFilter)" />
+
+  <!-- Glowing Slash Core Beam -->
+  <path d="M 70 408 L 442 104" stroke="url(#slashEnergy)" stroke-width="10" stroke-linecap="round" />
+  <path d="M 90 392 L 422 120" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+
+  <!-- Central Energy Impact Flash -->
+  <circle cx="256" cy="256" r="32" fill="#67e8f9" opacity="0.4" filter="url(#glowFilter)" />
+  <circle cx="256" cy="256" r="14" fill="#ffffff" opacity="0.9" />
+
+  <!-- Energy Crystals / Particles along Slash -->
+  <rect x="310" y="190" width="14" height="14" rx="2" fill="#38bdf8" transform="rotate(25 310 190)" />
+  <rect x="345" y="155" width="16" height="16" rx="3" fill="#67e8f9" transform="rotate(45 345 155)" opacity="0.9" />
+  <rect x="375" y="125" width="10" height="10" rx="2" fill="#a5f3fc" transform="rotate(15 375 125)" />
+  <rect x="180" y="290" width="14" height="14" rx="2" fill="#38bdf8" transform="rotate(30 180 290)" />
+  <rect x="150" y="320" width="10" height="10" rx="2" fill="#67e8f9" transform="rotate(60 150 320)" />
+
+  <!-- Sparkle Dots -->
+  <circle cx="330" cy="170" r="4" fill="#ffffff" />
+  <circle cx="360" cy="140" r="3" fill="#a5f3fc" />
+  <circle cx="390" cy="115" r="5" fill="#38bdf8" />
+  <circle cx="280" cy="220" r="4" fill="#ffffff" />
+  <circle cx="220" cy="285" r="3" fill="#67e8f9" />
+  <circle cx="170" cy="335" r="5" fill="#a5f3fc" />
+  <circle cx="130" cy="370" r="3" fill="#38bdf8" />
+</svg>

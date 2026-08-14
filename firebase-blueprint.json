@@ -1,0 +1,59 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Stores user settings, RPG profile, shop items, logs, and stats.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "profile": { "type": "object" },
+        "shopItems": { "type": "array" },
+        "gameLogs": { "type": "array" },
+        "pomodoroStats": { "type": "object" },
+        "isDead": { "type": "boolean" },
+        "deathStats": { "type": "object" },
+        "theme": { "type": "string" },
+        "language": { "type": "string" },
+        "notificationsEnabled": { "type": "boolean" },
+        "viewSortSettings": { "type": "object" },
+        "viewsOrder": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "profile", "theme", "language"]
+    },
+    "Task": {
+      "title": "Task",
+      "description": "Represents a user's task or quest.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string", "maxLength": 200 },
+        "description": { "type": "string", "maxLength": 1000 },
+        "status": { "type": "string", "enum": ["todo", "in_progress", "done"] },
+        "priority": { "type": "string", "enum": ["low", "medium", "high", "urgent"] },
+        "projectId": { "type": "string" },
+        "dueDate": { "type": "string" },
+        "reminder": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "isCustomQuest": { "type": "boolean" },
+        "earnedXp": { "type": "number" },
+        "earnedGold": { "type": "number" },
+        "earnedHp": { "type": "number" },
+        "earnedMp": { "type": "number" }
+      },
+      "required": ["userId", "title", "status", "priority", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "The root document for a user."
+    },
+    "/users/{userId}/tasks/{taskId}": {
+      "schema": { "$ref": "#/entities/Task" },
+      "description": "A task belonging to the user."
+    }
+  }
+}

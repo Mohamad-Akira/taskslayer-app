@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">TaskSlayer</string>
+    <string name="title_activity_main">TaskSlayer</string>
+    <string name="package_name">com.aegis.taskslayer</string>
+    <string name="custom_url_scheme">com.aegis.taskslayer</string>
+</resources>

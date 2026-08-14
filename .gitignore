@@ -1,0 +1,15 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Firebase credentials & sensitive config
+android/app/google-services.json
+google-services.json
+
+# Local sync data (contains user data)
+data/
